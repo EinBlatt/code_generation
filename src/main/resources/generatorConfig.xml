@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- !!!! Driver Class Path !!!! -->
+    <!--    <classPathEntry location="F:\company\mysql-connector-java-5.1.30.jar"/>-->
+
+
+    <context id="context" targetRuntime="MyBatis3">
+
+        <plugin type="cn.einblatt.mryce.plugin.LombokPlugin">
+            <property name="hasLombok" value="true"/>
+        </plugin>
+
+        <!-- 配置内置的或者自定义的Plugin -->
+        <plugin type="cn.einblatt.mryce.plugin.BaseMapperGeneratorPlugin"/>
+
+        <plugin type="cn.einblatt.mryce.plugin.ServiceAndControllerGeneratorPlugin">
+            <property name="targetProject" value="./src/main/java"/>
+            <property name="servicePackage" value="cn.einblatt.mryce.service"/>
+            <property name="serviceImplPackage" value="cn.einblatt.mryce.impl"/>
+            <property name="controllerPackage" value="cn.einblatt.mryce.controller"/>
+            <!--UserService,该值则为Service-->
+            <property name="serviceSuffix" value="Service"/>
+            <!--Service接口的父接口-->
+            <property name="superServiceInterface" value="cn.einblatt.mryce.commons.AbstractCommService"/>
+            <!--ServiceImpl的父类-->
+            <property name="superServiceImpl"
+                      value="cn.einblatt.mryce.commons.BaseCrudServiceImpl"/>
+            <!--controller的父类接口-->
+            <property name="superController"
+                      value="cn.einblatt.mryce.commons.CommonController"/>
+        </plugin>
+
+
+        <!-- 是否去除注释-->
+        <!--        <commentGenerator>-->
+        <!--            <property name="suppressAllComments" value="true"/>-->
+        <!--            <property name="suppressDate" value="true"/>-->
+        <!--        </commentGenerator>-->
+
+        <commentGenerator type="cn.einblatt.mryce.generator.MyCommentGenerator">
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
+
+
+        <!--<connectionURL="jdbc:mysql://192.168.0.113:3307/mars_basedb?characterEncoding=UTF8&amp;useSSL=false"/>-->
+        <!--root 123456-->
+
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.110.158:3306/xxx?characterEncoding=UTF8&amp;useSSL=false"
+                        userId="root"
+                        password="root"/>
+
+        <!--jdbc:mysql://rm-bp1y851e88yec27i6so.mysql.rds.aliyuncs
+        .com:3306/mars_basedb?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC&amp;zeroDateTimeBehavior=CONVERT_TO_NULL   mars payNotiry-->
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- !!!! Model Configurations !!!! -->
+        <!--指定的包下,指定的java-->
+        <javaModelGenerator targetPackage="cn.einblatt.mryce.pojo" targetProject="src/main/java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true"/>
+            <property name="rootClass" value="cn.einblatt.mryce.commons.AbstractBaseDomain"/>
+        </javaModelGenerator>
+
+        <!-- !!!! Mapper XML Configurations !!!! -->
+        <!--生成dao层-->
+
+        <sqlMapGenerator targetPackage="cn.einblatt.mryce.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+
+        <!-- !!!! Mapper Interface Configurations !!!! -->
+        <javaClientGenerator targetPackage="cn.einblatt.mryce.mapper" targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+            <property name="rootClass" value="cn.einblatt.mryce.commons.BaseMapper"/>
+        </javaClientGenerator>
+
+
+        <!-- !!!! Table Configurations !!!! -->
+        <!-- 指定数据库表 -->
+
+
+        <table schema="" tableName="xxxx" enableCountByExample="yes" enableUpdateByExample="yes"
+               enableDeleteByExample="yes" enableSelectByExample="yes" selectByExampleQueryId="yes">
+            <ignoreColumn column="id"/>
+            <ignoreColumn column="created"/>
+            <ignoreColumn column="updated"/>
+        </table>
+
+        <!--        <table schema="" tableName="uranus_user_credit_report_order" enableCountByExample="yes" enableUpdateByExample="yes"-->
+        <!--            enableDeleteByExample="yes" enableSelectByExample="yes"-->
+        <!--            selectByExampleQueryId="yes"  />-->
+
+
+    </context>
+
+</generatorConfiguration>

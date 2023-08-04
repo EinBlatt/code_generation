@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.einblatt.mryce.mapper.PrdProductMapper">
+  <resultMap id="BaseResultMap" type="cn.einblatt.mryce.pojo.PrdProduct">
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="product_logo" jdbcType="VARCHAR" property="productLogo" />
+    <result column="cycle_" jdbcType="INTEGER" property="cycle" />
+    <result column="daily_product" jdbcType="VARCHAR" property="dailyProduct" />
+    <result column="sort_val" jdbcType="INTEGER" property="sortVal" />
+    <result column="exchange_limit" jdbcType="VARCHAR" property="exchangeLimit" />
+    <result column="amount_" jdbcType="DECIMAL" property="amount" />
+    <result column="product_desc" jdbcType="VARCHAR" property="productDesc" />
+    <result column="status_" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.einblatt.mryce.pojo.PrdProduct">
+    insert into prd_product (product_name, product_logo, cycle_, 
+      daily_product, sort_val, exchange_limit, 
+      amount_, product_desc, status_
+      )
+    values (#{productName,jdbcType=VARCHAR}, #{productLogo,jdbcType=VARCHAR}, #{cycle,jdbcType=INTEGER}, 
+      #{dailyProduct,jdbcType=VARCHAR}, #{sortVal,jdbcType=INTEGER}, #{exchangeLimit,jdbcType=VARCHAR}, 
+      #{amount,jdbcType=DECIMAL}, #{productDesc,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.einblatt.mryce.pojo.PrdProduct">
+    insert into prd_product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="productLogo != null">
+        product_logo,
+      </if>
+      <if test="cycle != null">
+        cycle_,
+      </if>
+      <if test="dailyProduct != null">
+        daily_product,
+      </if>
+      <if test="sortVal != null">
+        sort_val,
+      </if>
+      <if test="exchangeLimit != null">
+        exchange_limit,
+      </if>
+      <if test="amount != null">
+        amount_,
+      </if>
+      <if test="productDesc != null">
+        product_desc,
+      </if>
+      <if test="status != null">
+        status_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productLogo != null">
+        #{productLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="cycle != null">
+        #{cycle,jdbcType=INTEGER},
+      </if>
+      <if test="dailyProduct != null">
+        #{dailyProduct,jdbcType=VARCHAR},
+      </if>
+      <if test="sortVal != null">
+        #{sortVal,jdbcType=INTEGER},
+      </if>
+      <if test="exchangeLimit != null">
+        #{exchangeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="productDesc != null">
+        #{productDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="cn.einblatt.mryce.pojo.PrdProduct">
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="product_logo" jdbcType="VARCHAR" property="productLogo" />
+    <result column="cycle_" jdbcType="INTEGER" property="cycle" />
+    <result column="daily_product" jdbcType="VARCHAR" property="dailyProduct" />
+    <result column="sort_val" jdbcType="INTEGER" property="sortVal" />
+    <result column="exchange_limit" jdbcType="VARCHAR" property="exchangeLimit" />
+    <result column="amount_" jdbcType="DECIMAL" property="amount" />
+    <result column="product_desc" jdbcType="VARCHAR" property="productDesc" />
+    <result column="status_" jdbcType="VARCHAR" property="status" />
+    <result column="created" jdbcType="VARCHAR" property="created" />
+    <result column="updated" jdbcType="VARCHAR" property="updated" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.einblatt.mryce.pojo.PrdProduct">
+    insert into prd_product (product_name, product_logo, cycle_, 
+      daily_product, sort_val, exchange_limit, 
+      amount_, product_desc, status_, 
+      created, updated)
+    values (#{productName,jdbcType=VARCHAR}, #{productLogo,jdbcType=VARCHAR}, #{cycle,jdbcType=INTEGER}, 
+      #{dailyProduct,jdbcType=VARCHAR}, #{sortVal,jdbcType=INTEGER}, #{exchangeLimit,jdbcType=VARCHAR}, 
+      #{amount,jdbcType=DECIMAL}, #{productDesc,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{created,jdbcType=VARCHAR}, #{updated,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.einblatt.mryce.pojo.PrdProduct">
+    insert into prd_product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="productLogo != null">
+        product_logo,
+      </if>
+      <if test="cycle != null">
+        cycle_,
+      </if>
+      <if test="dailyProduct != null">
+        daily_product,
+      </if>
+      <if test="sortVal != null">
+        sort_val,
+      </if>
+      <if test="exchangeLimit != null">
+        exchange_limit,
+      </if>
+      <if test="amount != null">
+        amount_,
+      </if>
+      <if test="productDesc != null">
+        product_desc,
+      </if>
+      <if test="status != null">
+        status_,
+      </if>
+      <if test="created != null">
+        created,
+      </if>
+      <if test="updated != null">
+        updated,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productLogo != null">
+        #{productLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="cycle != null">
+        #{cycle,jdbcType=INTEGER},
+      </if>
+      <if test="dailyProduct != null">
+        #{dailyProduct,jdbcType=VARCHAR},
+      </if>
+      <if test="sortVal != null">
+        #{sortVal,jdbcType=INTEGER},
+      </if>
+      <if test="exchangeLimit != null">
+        #{exchangeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="productDesc != null">
+        #{productDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="updated != null">
+        #{updated,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="cn.einblatt.mryce.pojo.PrdProduct">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="product_logo" jdbcType="VARCHAR" property="productLogo" />
+    <result column="cycle_" jdbcType="INTEGER" property="cycle" />
+    <result column="daily_product" jdbcType="VARCHAR" property="dailyProduct" />
+    <result column="sort_val" jdbcType="INTEGER" property="sortVal" />
+    <result column="exchange_limit" jdbcType="VARCHAR" property="exchangeLimit" />
+    <result column="amount_" jdbcType="DECIMAL" property="amount" />
+    <result column="product_desc" jdbcType="VARCHAR" property="productDesc" />
+    <result column="status_" jdbcType="VARCHAR" property="status" />
+    <result column="created" jdbcType="VARCHAR" property="created" />
+    <result column="updated" jdbcType="VARCHAR" property="updated" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, product_name, product_logo, cycle_, daily_product, sort_val, exchange_limit, 
+    amount_, product_desc, status_, created, updated
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from prd_product
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from prd_product
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.einblatt.mryce.pojo.PrdProduct">
+    insert into prd_product (id, product_name, product_logo, 
+      cycle_, daily_product, sort_val, 
+      exchange_limit, amount_, product_desc, 
+      status_, created, updated
+      )
+    values (#{id,jdbcType=BIGINT}, #{productName,jdbcType=VARCHAR}, #{productLogo,jdbcType=VARCHAR}, 
+      #{cycle,jdbcType=INTEGER}, #{dailyProduct,jdbcType=VARCHAR}, #{sortVal,jdbcType=INTEGER}, 
+      #{exchangeLimit,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, #{productDesc,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, #{updated,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.einblatt.mryce.pojo.PrdProduct">
+    insert into prd_product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="productLogo != null">
+        product_logo,
+      </if>
+      <if test="cycle != null">
+        cycle_,
+      </if>
+      <if test="dailyProduct != null">
+        daily_product,
+      </if>
+      <if test="sortVal != null">
+        sort_val,
+      </if>
+      <if test="exchangeLimit != null">
+        exchange_limit,
+      </if>
+      <if test="amount != null">
+        amount_,
+      </if>
+      <if test="productDesc != null">
+        product_desc,
+      </if>
+      <if test="status != null">
+        status_,
+      </if>
+      <if test="created != null">
+        created,
+      </if>
+      <if test="updated != null">
+        updated,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productLogo != null">
+        #{productLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="cycle != null">
+        #{cycle,jdbcType=INTEGER},
+      </if>
+      <if test="dailyProduct != null">
+        #{dailyProduct,jdbcType=VARCHAR},
+      </if>
+      <if test="sortVal != null">
+        #{sortVal,jdbcType=INTEGER},
+      </if>
+      <if test="exchangeLimit != null">
+        #{exchangeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="productDesc != null">
+        #{productDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="updated != null">
+        #{updated,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.einblatt.mryce.pojo.PrdProduct">
+    update prd_product
+    <set>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productLogo != null">
+        product_logo = #{productLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="cycle != null">
+        cycle_ = #{cycle,jdbcType=INTEGER},
+      </if>
+      <if test="dailyProduct != null">
+        daily_product = #{dailyProduct,jdbcType=VARCHAR},
+      </if>
+      <if test="sortVal != null">
+        sort_val = #{sortVal,jdbcType=INTEGER},
+      </if>
+      <if test="exchangeLimit != null">
+        exchange_limit = #{exchangeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        amount_ = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="productDesc != null">
+        product_desc = #{productDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status_ = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        created = #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="updated != null">
+        updated = #{updated,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.einblatt.mryce.pojo.PrdProduct">
+    update prd_product
+    set product_name = #{productName,jdbcType=VARCHAR},
+      product_logo = #{productLogo,jdbcType=VARCHAR},
+      cycle_ = #{cycle,jdbcType=INTEGER},
+      daily_product = #{dailyProduct,jdbcType=VARCHAR},
+      sort_val = #{sortVal,jdbcType=INTEGER},
+      exchange_limit = #{exchangeLimit,jdbcType=VARCHAR},
+      amount_ = #{amount,jdbcType=DECIMAL},
+      product_desc = #{productDesc,jdbcType=VARCHAR},
+      status_ = #{status,jdbcType=VARCHAR},
+      created = #{created,jdbcType=VARCHAR},
+      updated = #{updated,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.einblatt.mryce.pojo.PrdProduct">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="product_logo" jdbcType="VARCHAR" property="productLogo" />
+    <result column="cycle_" jdbcType="INTEGER" property="cycle" />
+    <result column="daily_product" jdbcType="VARCHAR" property="dailyProduct" />
+    <result column="sort_val" jdbcType="INTEGER" property="sortVal" />
+    <result column="exchange_limit" jdbcType="VARCHAR" property="exchangeLimit" />
+    <result column="amount_" jdbcType="DECIMAL" property="amount" />
+    <result column="product_desc" jdbcType="VARCHAR" property="productDesc" />
+    <result column="status_" jdbcType="VARCHAR" property="status" />
+    <result column="created" jdbcType="VARCHAR" property="created" />
+    <result column="updated" jdbcType="VARCHAR" property="updated" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, product_name, product_logo, cycle_, daily_product, sort_val, exchange_limit, 
+    amount_, product_desc, status_, created, updated
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from prd_product
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from prd_product
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.einblatt.mryce.pojo.PrdProduct">
+    insert into prd_product (id, product_name, product_logo, 
+      cycle_, daily_product, sort_val, 
+      exchange_limit, amount_, product_desc, 
+      status_, created, updated
+      )
+    values (#{id,jdbcType=BIGINT}, #{productName,jdbcType=VARCHAR}, #{productLogo,jdbcType=VARCHAR}, 
+      #{cycle,jdbcType=INTEGER}, #{dailyProduct,jdbcType=VARCHAR}, #{sortVal,jdbcType=INTEGER}, 
+      #{exchangeLimit,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, #{productDesc,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, #{updated,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.einblatt.mryce.pojo.PrdProduct">
+    insert into prd_product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="productLogo != null">
+        product_logo,
+      </if>
+      <if test="cycle != null">
+        cycle_,
+      </if>
+      <if test="dailyProduct != null">
+        daily_product,
+      </if>
+      <if test="sortVal != null">
+        sort_val,
+      </if>
+      <if test="exchangeLimit != null">
+        exchange_limit,
+      </if>
+      <if test="amount != null">
+        amount_,
+      </if>
+      <if test="productDesc != null">
+        product_desc,
+      </if>
+      <if test="status != null">
+        status_,
+      </if>
+      <if test="created != null">
+        created,
+      </if>
+      <if test="updated != null">
+        updated,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productLogo != null">
+        #{productLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="cycle != null">
+        #{cycle,jdbcType=INTEGER},
+      </if>
+      <if test="dailyProduct != null">
+        #{dailyProduct,jdbcType=VARCHAR},
+      </if>
+      <if test="sortVal != null">
+        #{sortVal,jdbcType=INTEGER},
+      </if>
+      <if test="exchangeLimit != null">
+        #{exchangeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="productDesc != null">
+        #{productDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="updated != null">
+        #{updated,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.einblatt.mryce.pojo.PrdProduct">
+    update prd_product
+    <set>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productLogo != null">
+        product_logo = #{productLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="cycle != null">
+        cycle_ = #{cycle,jdbcType=INTEGER},
+      </if>
+      <if test="dailyProduct != null">
+        daily_product = #{dailyProduct,jdbcType=VARCHAR},
+      </if>
+      <if test="sortVal != null">
+        sort_val = #{sortVal,jdbcType=INTEGER},
+      </if>
+      <if test="exchangeLimit != null">
+        exchange_limit = #{exchangeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        amount_ = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="productDesc != null">
+        product_desc = #{productDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status_ = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        created = #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="updated != null">
+        updated = #{updated,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.einblatt.mryce.pojo.PrdProduct">
+    update prd_product
+    set product_name = #{productName,jdbcType=VARCHAR},
+      product_logo = #{productLogo,jdbcType=VARCHAR},
+      cycle_ = #{cycle,jdbcType=INTEGER},
+      daily_product = #{dailyProduct,jdbcType=VARCHAR},
+      sort_val = #{sortVal,jdbcType=INTEGER},
+      exchange_limit = #{exchangeLimit,jdbcType=VARCHAR},
+      amount_ = #{amount,jdbcType=DECIMAL},
+      product_desc = #{productDesc,jdbcType=VARCHAR},
+      status_ = #{status,jdbcType=VARCHAR},
+      created = #{created,jdbcType=VARCHAR},
+      updated = #{updated,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
